@@ -24,6 +24,7 @@ namespace ListaWeb.Services
         
         public bool AgregarPendiente(PendienteItem pendiente)
         {
+         //se añade el pediente en la variable pendiente
             _context.Pendientes.Add(pendiente);
 
 
@@ -37,7 +38,7 @@ namespace ListaWeb.Services
         /// Regresar la lista de todos los pendientes incompletos, o sea que  EstaHecho == False
         public IEnumerable<PendienteItem> GetPendientesIncompletos()
         {
-
+        // si cumple la condiccion si esta terminada o no
             return _context.Pendientes.Where( p => p.EstaHecha == false);
                              
 
@@ -49,9 +50,10 @@ namespace ListaWeb.Services
         public bool MarcarHecho(Guid id)
         {
            /// 1
-           /// Buscar el id de la tarea
-           /// utilizar el método de LINQ FirstOrDefault
-           /// Regresa el pendiente si lo encontró null si no
+           /// Buscar el id de la tarea 
+           /// utilizar el método de LINQ FirstOrDefault 
+           /// Regresa el pendiente si lo encontró null si no 
+           // este es si hace la condiccion
            var pendiente = _context.Pendientes.FirstOrDefault(p => p.Id == id);
 
             /// 2
@@ -62,6 +64,7 @@ namespace ListaWeb.Services
 
             /// 3
             /// Marcar como hecho el pendiente
+            // si la esta echo el pedinete
             pendiente.EstaHecha = true;
 
 
